@@ -6,10 +6,10 @@ const Navbar = () => {
         <h1 className='text-bold italic m-2 text-white text-2xl hidden sm:block'>
             SocialApp
         </h1>
-        <div>
-          <CiSearch className='text-white w-2 h-2 absolute mx-5 m-3'/>
-      </div>
-
+        <h1 className='flex shadow-2xl justify-center w-full my-1'>
+          <CiSearch className='text-2xl text-bold my-2 text-white' />
+          <input type="text" placeholder='Search for contents...' className='w-[70%] sm:w-[50%] outline-1 text-xl rounded-md p-1 text-white outline-white' />
+        </h1>
     </div>
   )
 }
