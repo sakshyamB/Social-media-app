@@ -7,10 +7,11 @@ import { useState } from 'react';
 import { IoMoonOutline } from "react-icons/io5";
 import { CiBellOn } from "react-icons/ci";
 import { CgProfile } from "react-icons/cg";
-const Navbar = () => {
+import { IoIosMenu } from "react-icons/io";
+const Navbar = ({setisleftsidebaropen}) => {
   const [Darkmode, setDarkmode] = useState(false)
   return (
-    <div className='w-full bg-black h-[15%] flex justify-between'>
+    <div className='w-full sticky mt-0 bg-black h-[15%] flex justify-between'>
       <Link to="/">
         <h1 className='text-bold italic my-2 mx-1 text-white text-2xl hidden sm:block'>
             SocialApp
@@ -20,9 +21,10 @@ const Navbar = () => {
           <Link to="/">
           <FaHome className='text-white bold my-2 mx-2 sm:mx-4 text-2xl'/>
           </Link>
-          {Darkmode ? <MdOutlineWbSunny onClick={()=> setDarkmode(false)} className='text-white bold my-2 text-2xl'/>:
-           <IoMoonOutline onClick={()=> setDarkmode(true)} className='text-white bold my-2 text-2xl'/>
+          {Darkmode ? <MdOutlineWbSunny onClick={()=> setDarkmode(false)} className='text-white hidden sm:block bold my-2 text-2xl'/>:
+           <IoMoonOutline onClick={()=> setDarkmode(true)} className='text-white hidden sm:block bold my-2 text-2xl'/>
             }
+          <IoIosMenu onClick={()=> setisleftsidebaropen(prev => !prev)} className='text-white bold my-2 mx-2 sm:mx-4 text-2xl sm:hidden'/>
           </div>
         <h1 className='flex shadow-2xl mx-2 md:justify-center sm:mx-4 w-full my-1'>
           <CiSearch className='text-2xl text-bold my-2 text-white' />
@@ -31,7 +33,7 @@ const Navbar = () => {
         </h1>
                 <div className='flex justify-center mr-1 sm:mr-2 my-1'>
           <CiBellOn className='text-white bold my-2 mx-2 sm:mx-4 text-2xl'/>
-          <CgProfile className='text-white bold my-2 text-2xl'/>
+          <CgProfile className='text-blue-400 bold my-2 text-2xl'/>
           </div>
     </div>
   )
