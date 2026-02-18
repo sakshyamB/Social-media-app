@@ -31,9 +31,9 @@ const Leftbar = ({ isleftsidebaropen, setisleftsidebaropen}) => {
 
   return (
     <div
-      className={`h-screen overflow-hidden ${
+      className={`h-screen fixed left-0 top-0 mt-20 overflow-hidden ${
         isleftsidebaropen ? 'w-[80%] md:w-[25%]' : 'w-0'
-      } border-[1px] bg-white text-50 flex-row transition-all duration-300`}
+      } border-r-[1px] bg-white text-50 flex-row transition-all duration-300`}
     >
       <div className='flex text-xl sm:hidden flex-row-reverse pt-2 pr-5'>
         <ImCross
