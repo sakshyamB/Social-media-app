@@ -13,7 +13,6 @@ const Rightbar = ({ isrightsidebaropen, setisrightsidebaropen }) => {
 
     checkScreenSize();
     window.addEventListener("resize", checkScreenSize);
-
     return () => window.removeEventListener("resize", checkScreenSize);
   }, [setisrightsidebaropen]);
 
@@ -42,7 +41,7 @@ const Rightbar = ({ isrightsidebaropen, setisrightsidebaropen }) => {
     <div
       className={`${isrightsidebaropen ? 'w-[80%] md:w-[35%] lg:w-[30%]' : 'w-0'} h-screen fixed right-0 top-0 mt-22 overflow-hidden border-l-[1px] bg-gray-300 text-50 flex-row transition-all duration-300`}
     >
-      <div className="flex text-xl md:hidden flex-row-reverse pt-2 pr-5">
+      <div className="flex text-xl items-center md:hidden flex-row-reverse pt-1 pr-5">
         <ImCross
           onClick={() => setisrightsidebaropen(false)}
           className="text-red-500 cursor-pointer"
