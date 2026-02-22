@@ -9,18 +9,12 @@ const Home = ({islogoutclicked, setislogoutclicked}) => {
   const [isrightsidebaropen, setisrightsidebaropen] = useState(false)
   return (
     <div className="min-h-screen">
-      {islogoutclicked? <div className='w-full h-[30%] mx-auto my-auto'>
-        <h1 className='text-2xl'> Are you sure you want to log out? </h1>
-        <button onClick={()=> setislogoutclicked(false)} className='bg-red-500 text-white px-4 py-2 rounded'>No</button>
-        <Link to="/login">
-        <button className='bg-blue-500 text-white px-4 py-2 rounded'>Yes</button>
-        </Link>
-        </div> :
         <div className="w-full h-[30%] mx-auto my-auto">
       <Navbar setisleftsidebaropen={setisleftsidebaropen} setisrightsidebaropen={setisrightsidebaropen} />
       <div className="grid grid-cols-12 pt-[12vh]">
         <div className="col-span-3 border-r ">
           <Leftbar
+          setislogoutclicked={setislogoutclicked}
           islogoutclicked={islogoutclicked}
             isleftsidebaropen={isleftsidebaropen}
             setisleftsidebaropen={setisleftsidebaropen}
@@ -35,8 +29,20 @@ const Home = ({islogoutclicked, setislogoutclicked}) => {
         </div>
       </div>
       </div>
-}
-    </div>
+      {islogoutclicked && (
+        <div className='w-full h-screen fixed top-0 left-0  bg-opacity-50 flex justify-center items-center z-50'>
+          <div className='bg-white p-6 rounded-lg shadow-lg text-center'>
+            <h2 className='text-xl font-bold mb-4'>Are you sure you want to log out?</h2>
+            <div className='flex justify-center gap-4'>
+              <button onClick={() => setislogoutclicked(false)} className='px-4 py-2 bg-gray-300 rounded hover:bg-gray-400'>Cancel</button>
+              <Link to="/login">
+              <button onClick={() => setislogoutclicked(false)} className='px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600'>Log Out</button>   
+              </Link>
+            </div>
+          </div>
+        </div>
+      ) }
+      </div>
   )
 }
 
