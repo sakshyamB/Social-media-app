@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { CgProfile } from "react-icons/cg";
 import { FaUserFriends } from "react-icons/fa";
 import { HiMiniUserGroup } from "react-icons/hi2";
@@ -13,7 +13,8 @@ import { MdOutlineHelpOutline } from "react-icons/md";
 import { IoMdSettings } from "react-icons/io";
 import { ImCross } from "react-icons/im";
 
-const Leftbar = ({ isleftsidebaropen, setisleftsidebaropen}) => {
+const Leftbar = ({isleftsidebaropen, setisleftsidebaropen}) => {
+  const [islogoutclicked, setislogoutclicked] = useState(false);
   useEffect(() => {
     const checkScreenSize = () => {
       if (window.innerWidth >= 768) {
@@ -103,7 +104,7 @@ const Leftbar = ({ isleftsidebaropen, setisleftsidebaropen}) => {
       </div>
 
       <div className='w-full flex justify-center items-center'>
-        <button className='shadow-2xl bg-gray-200 w-full border-[1px] text-xl sm:text-2xl cursor-pointer'>
+        <button onClick={()=> setislogoutclicked(true)} className='shadow-2xl bg-gray-200 w-full border-[1px] text-xl sm:text-2xl cursor-pointer'>
           Log Out
         </button>
       </div>

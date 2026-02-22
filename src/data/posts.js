@@ -1,4 +1,4 @@
-const posts = [
+const dummyPosts = [
   {
     id: 1,
     user: {
@@ -140,4 +140,4 @@ const posts = [
   }
 ];
 
-export default posts;
+export default dummyPosts;
